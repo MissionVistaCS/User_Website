@@ -11,9 +11,8 @@ $("#up").click(function() {
 	//prevent PHP from being called
 	event.preventDefault();
 
-	//If password textbox is empty then don't attemp to log in
-	if($("#Pass").val() == "")
-	{
+	//If either textbox is empty then don't attemp to log in
+	if($("#Pass").val() == "" || $("#User").val() == "") {
 		console.log("Please enter password");
 		return;
 	}
@@ -39,6 +38,11 @@ $("#up").click(function() {
 /////////////////////////
 //Sign in
 $("#in").click(function() {
+	if($("#Pass").val() == "" || $("#User").val() == "") {
+		console.log("Please enter password");
+		return;
+	}
+
 	var parameters = {
 		username: $("#User").val(),
 		password: $("#Pass").val()
